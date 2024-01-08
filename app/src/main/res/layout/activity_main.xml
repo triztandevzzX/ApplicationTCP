@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="*">
+    </TableLayout>
 
-        <TableRow>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,5 +67,7 @@
         android:textColor="#FFFFFF"
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="266dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
