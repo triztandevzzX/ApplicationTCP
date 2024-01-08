@@ -4,70 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#FCE4EC"> <!-- Couleur rose pour le fond -->
+    android:background="#FCE4EC"
+    tools:context=".MainActivity">
 
-    <TableLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logoiut"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:contentDescription="Logo de l'application" />
+
+    <TextView
+        android:id="@+id/SAEText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:stretchColumns="*">
-    </TableLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SAE 3.02 - Devaux Tristan"
-                android:textColor="#880E4F"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.092" />
+        android:layout_marginTop="220dp"
+        android:text="SAE 3.02 - Devaux Tristan"
+        android:textColor="#880E4F"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_weight="1" />
 
     <Button
         android:id="@+id/connectivityTestButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="44dp"
         android:background="#FF6E40"
         android:text="Test de connectivité"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="423dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SAEText" />
 
     <TextView
+        android:id="@+id/servicesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="Services autres :"
         android:textColor="#880E4F"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toBottomOf="@id/connectivityTestButton"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_weight="1" />
 
     <Button
         android:id="@+id/tcpButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="24dp"
         android:background="#FF4081"
         android:text="En tant que serveur !"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="180dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/servicesText" />
 
     <Button
         android:id="@+id/udpButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="40dp"
         android:background="#E91E63"
         android:text="En tant que client !"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="266dp" />
-
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tcpButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
