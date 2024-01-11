@@ -45,6 +45,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
+    <!-- Zone d'affichage des adresses IP -->
+    <TextView
+        android:id="@+id/ipAddressesTextView"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="#ECEFF1"
+        android:gravity="start"
+        android:maxLines="4"
+        android:minLines="2"
+        android:padding="8dp"
+        android:text="Adresses IP ici"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@+id/startServerButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <!-- Zone d'affichage des messages du serveur -->
     <TextView
         android:id="@+id/serverMessagesTextView"
@@ -52,15 +69,17 @@
         android:layout_height="0dp"
         android:background="#ECEFF1"
         android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@+id/startServerButton"
+        app:layout_constraintTop_toBottomOf="@+id/ipAddressesTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:padding="8dp"
         android:text="Messages du serveur ici"
-        android:minLines="10"
-        android:maxLines="15"
+        android:minLines="6"
+        android:maxLines="10"
         android:scrollbars="vertical"
         android:gravity="top"/>
 
