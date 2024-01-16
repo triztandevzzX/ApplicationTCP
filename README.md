@@ -8,7 +8,7 @@ A termes, ce dépôt sera rendu public et tout le monde pourra télécharger cet
 
 ## Introduction
 
-Bienvenue sur le dépôt de mon projet individuel dans le cadre de la SAE3.04 de mon BUT Réseaux et Télécoms en Cybersécurité. Ce projet a pour objectif de créer une application Android capable de gérer des connexions entre clients et serveurs en utilisant le protocole TCP/IP. Le développement sera réalisé en Java et XML, avec Android Studio comme environnement de développement.
+Bienvenue sur le dépôt de mon projet individuel dans le cadre de la SAE3.02 de mon BUT Réseaux et Télécoms en Cybersécurité. Ce projet a pour objectif de créer une application Android capable de gérer des connexions entre clients et serveurs en utilisant le protocole TCP/IP. Le développement sera réalisé en Java et XML, avec Android Studio comme environnement de développement.
 
 ## Consignes du Projet
 
