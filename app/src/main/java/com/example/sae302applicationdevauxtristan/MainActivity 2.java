@@ -40,13 +40,12 @@ public class MainActivity extends AppCompatActivity {
                     tcpServer.startServer();
                     isServerRunning = true;
                     tcpButton.setText("Arrêter le serveur !");
-                    // Changer de vue vers activity_tcp_server.xml
+                    // Changer de vue vers activity_tcp_serveur.xml
                     Intent intent = new Intent(MainActivity.this, TCPServerActivity.class);
                     startActivity(intent);
                 }
             }
         });
-
     }
 
     @Override

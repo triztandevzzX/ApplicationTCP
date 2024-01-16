@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TCPPingTest"
+    android:background="#FCE4EC">
+
+    <!-- Image pour illustrer le test de ping -->
+    <ImageView
+        android:id="@+id/pingImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logopingtest"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <!-- Titre de la page -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test de Ping"
+        android:textColor="#880E4F"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/pingImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pingButton"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <!-- Champ pour entrer l'adresse IP -->
+    <EditText
+        android:id="@+id/ipAddressEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Adresse IP à tester"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Bouton pour lancer le test de ping -->
+    <Button
+        android:id="@+id/pingButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="#FF6E40"
+        android:text="Lancer le test de Ping"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/ipAddressEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <!-- Zone d'affichage des résultats du test de ping -->
+    <TextView
+        android:id="@+id/pingResultTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#ECEFF1"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@+id/pingButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:text="Résultats du test de ping ici"
+        android:minLines="10"
+        android:maxLines="15"
+        android:scrollbars="vertical"
+        android:gravity="top"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

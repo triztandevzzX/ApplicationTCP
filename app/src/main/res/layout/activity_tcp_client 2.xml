@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TCPClientActivity"
+    android:background="#FCE4EC">
+
+    <!-- Image pour illustrer le client -->
+    <ImageView
+        android:id="@+id/clientImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logoclient"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Titre de la page -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Client TCP"
+        android:textColor="#880E4F"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/clientImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/connectButton"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Champ pour l'IP du serveur -->
+    <EditText
+        android:id="@+id/serverIPEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="IP du serveur"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Champ pour le nom d'utilisateur -->
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nom d'utilisateur"
+        app:layout_constraintTop_toBottomOf="@+id/serverIPEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Champ pour le mot de passe -->
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Mot de passe"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/usernameEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Bouton pour se connecter -->
+    <Button
+        android:id="@+id/connectButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="#FF6E40"
+        android:text="Se connecter au serveur"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Zone d'affichage des messages du client -->
+    <TextView
+        android:id="@+id/clientMessagesTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#ECEFF1"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@+id/connectButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:text="Messages du client ici"
+        android:minLines="10"
+        android:maxLines="15"
+        android:scrollbars="vertical"
+        android:gravity="top"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
