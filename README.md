@@ -59,3 +59,39 @@ Smartphone utilisés dans le cadre de mes tests personnels :
 ## Remarque
 
 Le fichier .apk n'est pas fourni seul, mais l'ensemble du projet est disponible sur ce dépôt.
+
+## Comment Installer l'Application sur Android depuis Android Studio
+
+Pour tester l'application sur un appareil Android, suivez ces étapes simples :
+
+### Prérequis
+
+- Assurez-vous d'avoir Android Studio installé sur votre machine.
+- Connectez votre appareil Android à votre ordinateur via un câble USB.
+
+### Étapes d'Installation
+
+1. Clonez ce dépôt sur votre machine en utilisant la commande suivante dans votre terminal :
+
+`git clone https://github.com/triztandevzzX/ApplicationTCP`
+
+2. Ouvrez Android Studio.
+
+3. Dans Android Studio, ouvrez le projet en sélectionnant le répertoire cloné.
+
+4. Attendez que le projet se synchronise avec Gradle.
+
+5. Assurez-vous que votre appareil Android est détecté par Android Studio. Vous devriez le voir répertorié dans la barre d'outils.
+
+6. Sélectionnez le périphérique cible dans Android Studio.
+
+7. Cliquez sur le bouton `Run` (icône de lecture) dans la barre d'outils ou utilisez le raccourci clavier (généralement Maj + F10) pour compiler et installer l'application sur votre appareil Android.
+
+8. Suivez les instructions à l'écran pour autoriser l'installation de l'application sur votre appareil.
+
+9. Une fois l'installation terminée, l'application devrait être disponible sur votre écran d'accueil.
+
+10. Lancez l'application et explorez ses fonctionnalités!
+
+N'oubliez pas que si vous rencontrez des problèmes lors de l'installation, assurez-vous que votre appareil est en mode développeur et que le débogage USB est activé.
+
