@@ -2,6 +2,8 @@ package com.example.sae302applicationdevauxtristan;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,9 +31,6 @@ public class TCPPingTest extends AppCompatActivity {
 
         // Initialiser les éléments de l'interface
         initViews();
-
-        // Ajouter le listener pour le bouton de test de ping
-        pingButton.setOnClickListener(v -> startPingTest());
     }
 
     // Initialiser les éléments de l'interface
@@ -41,10 +40,37 @@ public class TCPPingTest extends AppCompatActivity {
         ipAddressEditText = findViewById(R.id.ipAddressEditText);
         pingButton = findViewById(R.id.pingButton);
         pingResultTextView = findViewById(R.id.pingResultTextView);
+
+        // Ajouter un effet de clic au bouton
+        pingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startPingTest();
+            }
+        });
+
+        // Animation de clic pour le bouton
+        pingButton.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN: {
+                    v.setScaleX(0.95f);
+                    v.setScaleY(0.95f);
+                    break;
+                }
+                case MotionEvent.ACTION_UP: {
+                    v.setScaleX(1f);
+                    v.setScaleY(1f);
+                    break;
+                }
+            }
+            return false;
+        });
     }
 
     // Méthode pour lancer le test de ping
     private void startPingTest() {
+        Log.d("PingTest", "startPingTest() called");
+
         String ipAddress = ipAddressEditText.getText().toString().trim();
 
         if (!ipAddress.isEmpty()) {

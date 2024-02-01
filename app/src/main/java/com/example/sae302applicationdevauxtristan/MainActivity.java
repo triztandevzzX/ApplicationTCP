@@ -6,105 +6,89 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
+import android.widget.TextView;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TCPServer tcpServer;
-    private boolean isServerRunning = false;
+    private Button serverButton;
+    private Button clientButton;
+    private TextView ipTextView;
+    private TextView portTextView;
+    private static final int SERVER_PORT = 12345; // Example port number
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Référence au bouton "En tant que serveur !"
-        Button tcpButton = findViewById(R.id.serveurButton);
+        serverButton = findViewById(R.id.serveurButton);
+        clientButton = findViewById(R.id.clientButton);
+        ipTextView = findViewById(R.id.ipTextView);
+        portTextView = findViewById(R.id.portTextView);
 
-        tcpServer = new TCPServer();
-
-        tcpButton.setOnClickListener(new View.OnClickListener() {
+        serverButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (isServerRunning) {
-                    tcpServer.stopServer();
-                    isServerRunning = false;
-                    tcpButton.setText("En tant que serveur !");
-                } else {
-                    tcpServer.startServer();
-                    isServerRunning = true;
-                    tcpButton.setText("Arrêter le serveur !");
-                    // Changer de vue vers activity_tcp_server.xml
-                    Intent intent = new Intent(MainActivity.this, TCPServerActivity.class);
-                    startActivity(intent);
-                }
+            public void onClick(View view) {
+                startServerActivity();
             }
         });
 
+        clientButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startClientActivity();
+            }
+        });
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (tcpServer != null) {
-            tcpServer.stopServer();
+    private void startServerActivity() {
+        Intent serverIntent = new Intent(this, TCPServerActivity.class);
+        startActivity(serverIntent);
+        displayServerInfo();
+    }
+
+    private void startClientActivity() {
+        Intent clientIntent = new Intent(this, TCPClientActivity.class);
+        startActivity(clientIntent);
+    }
+
+    private void displayServerInfo() {
+        try {
+            String ip = getIPAddress(true);
+            ipTextView.setText("Adresse IP : " + ip);
+            portTextView.setText("Port de communication : " + SERVER_PORT);
+        } catch (Exception e) {
+            ipTextView.setText("Impossibilité d'obtenir une adresse IP (erreur 2103)");
         }
     }
 
-    // Classe TCPServer
-    private class TCPServer {
+    public static String getIPAddress(boolean useIPv4) {
+        try {
+            List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface intf : interfaces) {
+                List<InetAddress> addrs = Collections.list(intf.getInetAddresses());
+                for (InetAddress addr : addrs) {
+                    if (!addr.isLoopbackAddress()) {
+                        String sAddr = addr.getHostAddress();
+                        boolean isIPv4 = sAddr.indexOf(':') < 0;
 
-        private ServerSocket serverSocket;
-        private Socket clientSocket;
-        private PrintWriter out;
-        private BufferedReader in;
-        private boolean isRunning = false;
-        private int port = 8080; // Port utilisé pour la connexion
-
-        public void startServer() {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        serverSocket = new ServerSocket(port);
-                        isRunning = true;
-
-                        while (isRunning) {
-                            System.out.println("Attente de connexion...");
-                            clientSocket = serverSocket.accept(); // Attente de connexion du client
-
-                            out = new PrintWriter(clientSocket.getOutputStream(), true);
-                            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
-                            String inputLine;
-                            while ((inputLine = in.readLine()) != null) {
-                                System.out.println("Message reçu : " + inputLine);
-                                out.println("Message reçu : " + inputLine); // Répond au client
+                        if (useIPv4) {
+                            if (isIPv4)
+                                return sAddr;
+                        } else {
+                            if (!isIPv4) {
+                                int delim = sAddr.indexOf('%'); // drop ip6 zone suffix
+                                return delim < 0 ? sAddr.toUpperCase() : sAddr.substring(0, delim).toUpperCase();
                             }
                         }
-                    } catch (IOException e) {
-                        e.printStackTrace();
                     }
                 }
-            }).start();
-        }
-
-        public void stopServer() {
-            try {
-                isRunning = false;
-                if (in != null) in.close();
-                if (out != null) out.close();
-                if (clientSocket != null) clientSocket.close();
-                if (serverSocket != null) serverSocket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-        }
+        } catch (Exception ex) { } // for now eat exceptions
+        return "";
     }
 }
