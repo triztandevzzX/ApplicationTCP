@@ -79,6 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/file_name"
         tools:layout_editor_absoluteX="119dp" />
 
+
     <!--<TextView
         android:id="@+id/messagesTextView"
         android:layout_width="0dp"
