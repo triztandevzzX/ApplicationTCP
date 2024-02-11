@@ -1,3 +1,4 @@
+
 package com.example.sae302applicationdevauxtristan;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -5,8 +6,11 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.Toast;
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -33,8 +37,46 @@ public class TCPClientActivity extends AppCompatActivity {
         //messagesTextView = findViewById(R.id.messagesTextView);
 
         sendButton.setOnClickListener(view -> sendMessage());
+        Button downloadButton = findViewById(R.id.downloadButton);
+        downloadButton.setOnClickListener(view -> downloadFile());
 
         new Thread(this::connectToServer).start();
+        loadAndDisplayJsonContent();
+    }
+
+    private void loadAndDisplayJsonContent() {
+        String filename = "fichier_json_1.json";
+        try {
+            InputStream is = getAssets().open(filename);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            String jsonContent = new String(buffer, "UTF-8");
+
+            // Affiche le contenu JSON dans le TextView
+            TextView fileNameTextView = findViewById(R.id.file_name);
+            fileNameTextView.setText(jsonContent);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void downloadFile() {
+        String filename = "fichier_json_1_sauvegarde.json";
+        String content = ((TextView) findViewById(R.id.file_name)).getText().toString();
+
+        try {
+            FileOutputStream fos = openFileOutput(filename, MODE_PRIVATE);
+            fos.write(content.getBytes());
+            fos.close();
+
+            // Affiche un message de confirmation
+            Toast.makeText(this, "Fichier téléchargé avec succès", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Erreur lors du téléchargement", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void connectToServer() {

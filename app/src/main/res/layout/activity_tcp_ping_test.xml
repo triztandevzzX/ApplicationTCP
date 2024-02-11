@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginEnd="132dp"
         android:text="Ping manuel"
         app:layout_constraintEnd_toEndOf="@id/ipAddressEditText"
         app:layout_constraintTop_toBottomOf="@id/ipAddressEditText" />
@@ -77,8 +77,10 @@
         android:id="@+id/loopbackPingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Ping ➡️ Loopback"
+        android:layout_marginTop="56dp"
+        android:text="Loopback"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/manualPingButton"
         app:layout_constraintTop_toBottomOf="@id/manualPingButton" />
 
@@ -86,9 +88,11 @@
         android:id="@+id/googlePingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ping ➡️ Google"
-        app:layout_constraintTop_toBottomOf="@id/loopbackPingButton"
+        android:layout_marginTop="52dp"
+        android:text="Google"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="@id/loopbackPingButton"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintTop_toBottomOf="@id/loopbackPingButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
