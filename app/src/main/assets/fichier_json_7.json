@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "nom": "Restaurant A",
+      "type_cuisine": "italienne",
+      "note": 4.5
+    },
+    {
+      "id": 2,
+      "nom": "Restaurant B",
+      "type_cuisine": "française",
+      "note": 4.2
+    }
+  ]
+  

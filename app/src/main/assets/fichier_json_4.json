@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "tache": "Acheter du lait",
+      "termine": false
+    },
+    {
+      "id": 2,
+      "tache": "Appeler le médecin",
+      "termine": false
+    },
+    {
+      "id": 3,
+      "tache": "Répondre aux e-mails",
+      "termine": true
+    }
+  ]
+  

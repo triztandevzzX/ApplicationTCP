@@ -1,0 +1,13 @@
+[
+    {
+      "id": 1,
+      "expediteur": "Utilisateur456",
+      "contenu": "Bonjour, comment ça va ?"
+    },
+    {
+      "id": 2,
+      "expediteur": "Utilisateur789",
+      "contenu": "Ça va bien, merci ! Et toi ?"
+    }
+  ]
+  

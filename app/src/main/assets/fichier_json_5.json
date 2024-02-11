@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "nom": "Jean Dupont",
+      "telephone": "123-456-7890",
+      "email": "jean.dupont@example.com"
+    },
+    {
+      "id": 2,
+      "nom": "Marie Martin",
+      "telephone": "987-654-3210",
+      "email": "marie.martin@example.com"
+    }
+  ]
+  

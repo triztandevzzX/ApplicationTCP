@@ -16,9 +16,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Button serverButton;
     private Button clientButton;
+    private Button pingButton;
     private TextView ipTextView;
     private TextView portTextView;
-    private static final int SERVER_PORT = 12345; // Example port number
+    private static final int SERVER_PORT = 443; // Example port number
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         serverButton = findViewById(R.id.serveurButton);
         clientButton = findViewById(R.id.clientButton);
+        pingButton = findViewById(R.id.pingButton);
         ipTextView = findViewById(R.id.ipTextView);
         portTextView = findViewById(R.id.portTextView);
 
@@ -41,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startClientActivity();
+            }
+        });
+
+        pingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pingIntent = new Intent(MainActivity.this, TCPPingTest.class);
+                startActivity(pingIntent);
             }
         });
     }

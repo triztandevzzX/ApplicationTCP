@@ -5,6 +5,10 @@
     <!-- Autorisations de mon application -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Autorisations d'accès au réseau (accès risqué alors autorisations requises (sans validation par l'utilisateur)) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"

@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "username": "utilisateur123",
+  "email": "utilisateur123@example.com",
+  "age": 25,
+  "adresse": {
+    "rue": "123 rue de l'Utilisateur",
+    "ville": "Villeville",
+    "code_postal": "12345"
+  }
+}
